@@ -1,7 +1,8 @@
 from langchain_groq import ChatGroq
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
-from langchain.schema import HumanMessage, AIMessage, Document
+from langchain_core.messages import HumanMessage, AIMessage
+from langchain_core.documents import Document
 from app.config import settings
 from app.models.schemas import ChatMessage
 from fastapi import HTTPException
