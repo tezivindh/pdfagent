@@ -24,8 +24,12 @@ export const CitationChip: React.FC<{ citation: Citation }> = ({ citation }) => 
 
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-base/80 backdrop-blur-xs">
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-base/80 backdrop-blur-xs"
+            onClick={() => setIsOpen(false)}
+          >
             <motion.div
+              onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
