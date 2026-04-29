@@ -1,0 +1,73 @@
+# =========================
+# Common Environment Files
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =========================
+# Node / Frontend (React + Vite)
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+frontend/.npm/
+
+# Vite output
+*.tsbuildinfo
+
+# =========================
+# Python / Backend (FastAPI)
+# =========================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+backend/venv/
+backend/env/
+backend/.venv/
+venv/
+env/
+.venv/
+ENV/
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Local FAISS / Vector DB Storage (if persisted locally)
+backend/faiss_index/
+backend/*.faiss
+backend/*.pkl
+
+# Uploaded/Temporary PDFs
+backend/temp/
+backend/uploads/
+*.pdf
+
+# =========================
+# OS / IDE / Editor
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# IntelliJ / PyCharm / WebStorm
+.idea/
+*.iml
+
+# Mac / Linux
+*~
+.directory

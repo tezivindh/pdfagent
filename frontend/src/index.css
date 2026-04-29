@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-syne: Syne, sans-serif;
+  --font-dmSans: DM Sans, sans-serif;
+  --font-mono: JetBrains Mono, monospace;
+
+  --color-base: var(--base);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-glass-hover: var(--glass-hover);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-secondary: var(--secondary);
+  --color-secondary-dim: var(--secondary-dim);
+  --color-warning: var(--warning);
+  --color-warning-dim: var(--warning-dim);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+:root {
+  --base: #0A0A0F;
+  --surface: #12121A;
+  --surface-2: #1A1A26;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.07);
+  --accent: #6366F1;
+  --accent-dim: rgba(99, 102, 241, 0.15);
+  --secondary: #10B981;
+  --secondary-dim: rgba(16, 185, 129, 0.15);
+  --warning: #F59E0B;
+  --warning-dim: rgba(245, 158, 11, 0.15);
+  --text: #F1F5F9;
+  --text-muted: #64748B;
+  --text-subtle: #334155;
+}
+
+body {
+  background: radial-gradient(
+    ellipse at 20% 50%, 
+    rgba(99,102,241,0.08) 0%, 
+    transparent 60%
+  ),
+  radial-gradient(
+    ellipse at 80% 20%, 
+    rgba(16,185,129,0.05) 0%, 
+    transparent 50%
+  ),
+  var(--base);
+  min-height: 100dvh;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-subtle);
+}
