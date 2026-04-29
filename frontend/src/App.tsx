@@ -28,7 +28,9 @@ function App() {
         </div>
         
         <a 
-          href="#" 
+          href="https://github.com/tezivindh/pdfagent" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2 text-sm font-dmSans text-text-muted hover:text-text transition-colors"
         >
           <Github size={18} />
