@@ -1,7 +1,7 @@
 import React from 'react'
 import { PDFUploader } from './PDFUploader'
 import { PDFMetadata } from '../types'
-import { FileText, Layers, Hash, Calendar, RefreshCw } from 'lucide-react'
+import { FileText, Layers, Calendar, RefreshCw } from 'lucide-react'
 
 interface PDFPanelProps {
   pdfMetadata: PDFMetadata | null
@@ -12,8 +12,8 @@ interface PDFPanelProps {
 
 export const PDFPanel: React.FC<PDFPanelProps> = ({ pdfMetadata, isUploading, onUpload, onClear }) => {
   return (
-    <div className="h-full w-full bg-surface/50 backdrop-blur-md border-r border-glass-border flex flex-col p-6 overflow-y-auto">
-      <div className="mb-8">
+    <div className="h-full w-full bg-surface/50 backdrop-blur-md lg:border-r border-glass-border flex flex-col p-4 lg:p-6 overflow-y-auto">
+      <div className="mb-4 lg:mb-8">
         <h2 className="text-xl font-syne font-bold text-text flex items-center gap-2">
           <FileText className="text-accent" size={24} />
           Document Context
@@ -32,15 +32,12 @@ export const PDFPanel: React.FC<PDFPanelProps> = ({ pdfMetadata, isUploading, on
               {pdfMetadata.filename}
             </h3>
             
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-6 lg:gap-3 flex-wrap">
               <div className="flex items-center gap-3 text-sm text-text-muted">
                 <Layers size={16} className="text-secondary" />
                 <span>{pdfMetadata.page_count} Pages</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-text-muted">
-                <Hash size={16} className="text-accent" />
-                <span>{pdfMetadata.chunk_count} Vector Chunks</span>
-              </div>
+
               <div className="flex items-center gap-3 text-sm text-text-muted">
                 <Calendar size={16} className="text-warning" />
                 <span>{new Date(pdfMetadata.loaded_at).toLocaleString()}</span>
@@ -58,7 +55,7 @@ export const PDFPanel: React.FC<PDFPanelProps> = ({ pdfMetadata, isUploading, on
         </div>
       )}
       
-      <div className="mt-auto pt-8 flex items-center justify-center text-xs text-text-subtle font-mono">
+      <div className="mt-auto pt-4 lg:pt-8 hidden lg:flex items-center justify-center text-xs text-text-subtle font-mono">
         <div className="px-3 py-1 rounded-full bg-surface-2 border border-glass-border">
           Status: {pdfMetadata ? 'Ready' : 'Waiting for document'}
         </div>

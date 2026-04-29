@@ -75,7 +75,7 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
       {/* Messages Area */}
       <div 
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-6 scroll-smooth z-10"
+        className="flex-1 overflow-y-auto p-4 lg:p-6 scroll-smooth z-10"
       >
         {messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center text-text-muted space-y-4">
@@ -99,7 +99,7 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
       </div>
 
       {/* Input Area */}
-      <div className="p-6 bg-linear-to-t from-base via-base to-transparent z-10 shrink-0">
+      <div className="p-4 lg:p-6 bg-linear-to-t from-base via-base to-transparent z-10 shrink-0">
         <div className="max-w-4xl mx-auto relative group">
           <textarea
             ref={inputRef}
@@ -108,7 +108,7 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
             onKeyDown={handleKeyDown}
             disabled={disabled || isSending}
             placeholder={disabled ? "Upload a PDF to start chatting..." : "Ask a question about the document..."}
-            className="w-full bg-surface-2/80 backdrop-blur-xl border border-glass-border rounded-2xl py-4 pl-5 pr-16 text-text placeholder:text-text-muted/50 focus:outline-hidden focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all resize-none shadow-xl disabled:opacity-50 disabled:cursor-not-allowed min-h-[60px] max-h-48 font-dmSans"
+            className="w-full bg-surface-2/80 backdrop-blur-xl border border-glass-border rounded-2xl py-3 pl-4 pr-14 lg:py-4 lg:pl-5 lg:pr-16 text-text placeholder:text-text-muted/50 focus:outline-hidden focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all resize-none shadow-xl disabled:opacity-50 disabled:cursor-not-allowed min-h-[60px] max-h-48 font-dmSans"
             rows={1}
             style={{ 
               height: 'auto', 
@@ -128,7 +128,7 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
             </button>
           </div>
         </div>
-        <div className="max-w-4xl mx-auto text-center mt-3 text-xs font-mono text-text-muted/40">
+        <div className="max-w-4xl mx-auto text-center mt-2 lg:mt-3 text-[10px] lg:text-xs font-mono text-text-muted/40">
           Agent uses strictly extracted content. Zero external hallucination.
         </div>
       </div>

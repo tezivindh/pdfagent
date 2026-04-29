@@ -39,9 +39,9 @@ function App() {
       </header>
 
       {/* Main Content Split */}
-      <main className="flex-1 flex overflow-hidden">
+      <main className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
         {/* Left Panel - 35% */}
-        <div className="w-[35%] shrink-0 h-full relative z-20 shadow-2xl">
+        <div className="w-full lg:w-[35%] shrink-0 h-auto lg:h-full relative z-20 shadow-2xl border-b lg:border-b-0 border-glass-border">
           <PDFPanel 
             pdfMetadata={pdfMetadata}
             isUploading={isUploading}
@@ -51,7 +51,7 @@ function App() {
         </div>
 
         {/* Right Panel - 65% */}
-        <div className="flex-1 h-full relative z-10">
+        <div className="flex-1 min-h-[70vh] lg:min-h-0 h-full relative z-10">
           <ChatPanel 
             messages={messages}
             isSending={isSending}

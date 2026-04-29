@@ -9,7 +9,7 @@ export const MessageBubble: React.FC<{ message: ChatMessage }> = ({ message }) =
   return (
     <div className={`flex w-full ${isUser ? 'justify-end' : 'justify-start'} mb-6`}>
       <div 
-        className={`max-w-[85%] flex flex-col gap-2 ${
+        className={`max-w-[95%] lg:max-w-[85%] flex flex-col gap-2 ${
           isUser 
             ? 'items-end' 
             : 'items-start'
@@ -28,12 +28,6 @@ export const MessageBubble: React.FC<{ message: ChatMessage }> = ({ message }) =
             {message.content}
           </div>
 
-          {!isUser && !message.is_refusal && message.confidence !== undefined && message.confidence > 0 && (
-            <div className="mt-3 text-[11px] font-mono text-text-muted/60 uppercase tracking-widest flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-secondary"></span>
-              Confidence: {(message.confidence * 100).toFixed(0)}%
-            </div>
-          )}
         </div>
 
         {!isUser && message.citations && message.citations.length > 0 && (
