@@ -20,18 +20,23 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({ onUpload, isUploading 
     setIsDragOver(false)
   }
 
+  const isAcceptedFile = (file: File) => {
+    const name = file.name.toLowerCase()
+    return name.endsWith('.pdf') || name.endsWith('.txt')
+  }
+
   const handleDrop = async (e: React.DragEvent) => {
     e.preventDefault()
     setIsDragOver(false)
     const files = e.dataTransfer.files
-    if (files.length > 0 && files[0].type === 'application/pdf') {
+    if (files.length > 0 && isAcceptedFile(files[0])) {
       await onUpload(files[0])
     }
   }
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
-    if (files && files.length > 0 && files[0].type === 'application/pdf') {
+    if (files && files.length > 0 && isAcceptedFile(files[0])) {
       await onUpload(files[0])
     }
   }
@@ -50,7 +55,7 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({ onUpload, isUploading 
     >
       <input
         type="file"
-        accept="application/pdf"
+        accept=".pdf,.txt"
         className="hidden"
         ref={fileInputRef}
         onChange={handleFileSelect}
@@ -59,16 +64,16 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({ onUpload, isUploading 
       {isUploading ? (
         <div className="flex flex-col items-center">
           <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin mb-4" />
-          <p className="text-text font-medium">Processing PDF...</p>
+          <p className="text-text font-medium">Processing document...</p>
         </div>
       ) : (
         <>
           <div className="p-4 bg-surface-2 rounded-full mb-4 shadow-lg border border-glass-border">
             <UploadCloud size={28} className="text-accent" />
           </div>
-          <p className="text-text font-medium mb-1">Drop PDF here or click to upload</p>
+          <p className="text-text font-medium mb-1">Drop PDF or TXT here, or click to upload</p>
           <p className="text-text-muted text-sm text-center">
-            Max size: 50MB
+            Supported: .pdf, .txt &nbsp;·&nbsp; Max size: 50MB
           </p>
         </>
       )}
