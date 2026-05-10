@@ -196,7 +196,7 @@ npm run dev
 
 ## Deployment
 
-### Backend → Render (Free Tier)
+### Backend → Render
 
 | Setting | Value |
 |---------|-------|
